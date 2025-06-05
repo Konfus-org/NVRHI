@@ -1,61 +1,73 @@
 project "NVRHI"
     kind "StaticLib"
     language "C++"
-    cppdialect "C++20"
+    cppdialect "C++17"
     staticruntime "Off"
 
-    if OutputIntermediateDir == nil or OutputTargetDir == nil then
-        targetdir ("Build/bin/%{prj.name}/")
-        objdir    ("Build/obj/%{prj.name}/")
-
-    else
-        targetdir ("../../../" .. OutputTargetDir .. "")
-        objdir    ("../../../" .. OutputIntermediateDir .. "")
-    end
-
-    defines
-    {
-        "NVRHI_WITH_DX12",
-        "NVRHI_WITH_VULKAN"
-    }
-
-    includedirs 
+    includedirs
     {
         "./thirdparty/DirectX-Headers/include",
         "./thirdparty/DirectX-Headers/include/directx",
-        "./thirdparty/DirectX-Headers/src",
         "./thirdparty/Vulkan-Headers/include",
+
+        "./rtxmu/include",
+
         "./include",
         "./src",
     }
-
     files
     {
-        "./thirdparty/DirectX-Headers/include/**.h",
-        "./thirdparty/DirectX-Headers/src/**.h",
-        "./thirdparty/DirectX-Headers/src/**.cpp",
         "./thirdparty/Vulkan-Headers/include/**.h",
-        "./include/**.h",
-        "./src/**.h",
-        "./src/**.cpp"
+        "./thirdparty/Vulkan-Headers/include/**.hpp",
+        "./thirdparty/Vulkan-Headers/src/**.cpp",
+
+        "./rtxmu/include/rtxmu/Logger.h",
+        "./rtxmu/include/rtxmu/Suballocator.h",
+        "./rtxmu/include/rtxmu/AccelStructManager.h",
+        "./rtxmu/include/rtxmu/VulkanSuballocator.h",
+        "./rtxmu/include/rtxmu/VkAccelStructManager.h",
+        "./rtxmu/src/VulkanSuballocator.cpp",
+        "./rtxmu/src/VkAccelStructManager.cpp",
+        "./rtxmu/src/Logger.cpp",
+
+        "./include/common/**.h",
+        "./src/common/**.h",
+        "./src/common/**.cpp",
+        "./include/validation/**.h",
+        "./src/validation/**.h",
+        "./src/validation/**.cpp",
+        "./include/vulkan/**.h",
+        "./src/vulkan/**.cpp",
+        "./src/vulkan/**.h",
+
+        -- Use later requires xxopts
+        -- "./tools/**.h",
+        -- "./tools/**.cpp",
+
+        "./**.md",
+        "./**.lua"
+    }
+    defines
+    {
+        "NVRHI_WITH_VULKAN",
+        "RTXMU_WITH_VULKAN"
     }
 
     filter "system:windows"
-        defines { "VK_USE_PLATFORM_WIN32_KHR", "NOMINMAX" }
         systemversion "latest"
+        defines { "NVRHI_WITH_DX12", "RTXMU_WITH_D3D12", "VK_USE_PLATFORM_WIN32_KHR", "NOMINMAX" }
+        files
+        {
+            "./thirdparty/DirectX-Headers/include/**.h",
+            "./thirdparty/DirectX-Headers/include/**.hpp",
+            "./thirdparty/DirectX-Headers/src/**.cpp",
 
-    filter "configurations:Debug"
-        runtime "Debug"
-        buildoptions { "/MDd" }
-        symbols "On"
+            "./rtxmu/include/rtxmu/D3D12Suballocator.h",
+            "./rtxmu/include/rtxmu/D3D12AccelStructManager.h",
+            "./rtxmu/src/D3D12Suballocator.cpp",
+            "./rtxmu/src/D3D12AccelStructManager.cpp",
 
-    filter "configurations:Optimized"
-        runtime "Release"
-        buildoptions { "/MDd" }
-        optimize "On"
-
-    filter "configurations:Release"
-        runtime "Release"
-        optimize "On"
-        buildoptions { "/MD" }
-        symbols "Off"
+            "./include/d3d12/**.h",
+            "./src/d3d12/**.cpp",
+            "./src/d3d12/**.h",
+        }
