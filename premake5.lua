@@ -44,8 +44,7 @@ project "NVRHI"
         -- "./tools/**.h",
         -- "./tools/**.cpp",
 
-        "./**.md",
-        "./**.lua"
+        "./**.md"
     }
     defines
     {

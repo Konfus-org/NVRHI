@@ -1,23 +1,26 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <Project ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
   <ItemGroup>
-    <Filter Include="include">
-      <UniqueIdentifier>{89AF369E-F58E-B539-FEA6-40106A051C9B}</UniqueIdentifier>
+    <Filter Include="doc">
+      <UniqueIdentifier>{FB6A880B-6774-887C-F0EF-9E7C5CF8937C}</UniqueIdentifier>
     </Filter>
-    <Filter Include="include\nvrhi">
-      <UniqueIdentifier>{BF16D4A5-2BD7-4FDC-F411-9959609194B8}</UniqueIdentifier>
+    <Filter Include="rtxmu">
+      <UniqueIdentifier>{85924F10-F1A6-77C1-BA28-1B2126FC73F2}</UniqueIdentifier>
     </Filter>
-    <Filter Include="include\nvrhi\common">
-      <UniqueIdentifier>{374BB34D-23DA-3C17-CCF8-5012B8664DBD}</UniqueIdentifier>
+    <Filter Include="rtxmu\include">
+      <UniqueIdentifier>{F86EF566-642F-719D-2D6A-BA1A99E9B579}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="rtxmu\include\rtxmu">
+      <UniqueIdentifier>{E7D02D99-5332-0BA7-DC9F-515948004266}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="rtxmu\src">
+      <UniqueIdentifier>{1C0B4BFB-8875-FF71-D1B3-B0173D5DDDC6}</UniqueIdentifier>
     </Filter>
     <Filter Include="src">
       <UniqueIdentifier>{2DAB880B-99B4-887C-2230-9F7C8E38947C}</UniqueIdentifier>
     </Filter>
     <Filter Include="src\common">
       <UniqueIdentifier>{E5D74254-D18F-84A1-3A97-5DFD266E1F92}</UniqueIdentifier>
-    </Filter>
-    <Filter Include="src\d3d11">
-      <UniqueIdentifier>{1948EBB4-85B2-9F2B-CEF0-50D13A9A7D80}</UniqueIdentifier>
     </Filter>
     <Filter Include="src\d3d12">
       <UniqueIdentifier>{1A48EBB4-86B2-9F2B-CFF0-50D13B9A7D80}</UniqueIdentifier>
@@ -58,6 +61,12 @@
     <Filter Include="thirdparty\Vulkan-Headers">
       <UniqueIdentifier>{B9CD4492-2590-781C-6E40-07A9DA4151FA}</UniqueIdentifier>
     </Filter>
+    <Filter Include="thirdparty\Vulkan-Headers\.github">
+      <UniqueIdentifier>{3942AD97-A5B0-0217-EE99-BD165A47F8B2}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="thirdparty\Vulkan-Headers\.github\ISSUE_TEMPLATE">
+      <UniqueIdentifier>{8C8416CD-782D-7EFC-A1C3-997B8DCB983D}</UniqueIdentifier>
+    </Filter>
     <Filter Include="thirdparty\Vulkan-Headers\include">
       <UniqueIdentifier>{2C9E3C65-980C-92E4-E1F5-4CE44DA38780}</UniqueIdentifier>
     </Filter>
@@ -69,41 +78,26 @@
     </Filter>
   </ItemGroup>
   <ItemGroup>
-    <ClInclude Include="include\nvrhi\common\aftermath.h">
-      <Filter>include\nvrhi\common</Filter>
+    <ClInclude Include="rtxmu\include\rtxmu\AccelStructManager.h">
+      <Filter>rtxmu\include\rtxmu</Filter>
     </ClInclude>
-    <ClInclude Include="include\nvrhi\common\containers.h">
-      <Filter>include\nvrhi\common</Filter>
+    <ClInclude Include="rtxmu\include\rtxmu\D3D12AccelStructManager.h">
+      <Filter>rtxmu\include\rtxmu</Filter>
     </ClInclude>
-    <ClInclude Include="include\nvrhi\common\misc.h">
-      <Filter>include\nvrhi\common</Filter>
+    <ClInclude Include="rtxmu\include\rtxmu\D3D12Suballocator.h">
+      <Filter>rtxmu\include\rtxmu</Filter>
     </ClInclude>
-    <ClInclude Include="include\nvrhi\common\resource.h">
-      <Filter>include\nvrhi\common</Filter>
+    <ClInclude Include="rtxmu\include\rtxmu\Logger.h">
+      <Filter>rtxmu\include\rtxmu</Filter>
     </ClInclude>
-    <ClInclude Include="include\nvrhi\common\resourcebindingmap.h">
-      <Filter>include\nvrhi\common</Filter>
+    <ClInclude Include="rtxmu\include\rtxmu\Suballocator.h">
+      <Filter>rtxmu\include\rtxmu</Filter>
     </ClInclude>
-    <ClInclude Include="include\nvrhi\d3d11.h">
-      <Filter>include\nvrhi</Filter>
+    <ClInclude Include="rtxmu\include\rtxmu\VkAccelStructManager.h">
+      <Filter>rtxmu\include\rtxmu</Filter>
     </ClInclude>
-    <ClInclude Include="include\nvrhi\d3d12.h">
-      <Filter>include\nvrhi</Filter>
-    </ClInclude>
-    <ClInclude Include="include\nvrhi\nvrhi.h">
-      <Filter>include\nvrhi</Filter>
-    </ClInclude>
-    <ClInclude Include="include\nvrhi\nvrhiHLSL.h">
-      <Filter>include\nvrhi</Filter>
-    </ClInclude>
-    <ClInclude Include="include\nvrhi\utils.h">
-      <Filter>include\nvrhi</Filter>
-    </ClInclude>
-    <ClInclude Include="include\nvrhi\validation.h">
-      <Filter>include\nvrhi</Filter>
-    </ClInclude>
-    <ClInclude Include="include\nvrhi\vulkan.h">
-      <Filter>include\nvrhi</Filter>
+    <ClInclude Include="rtxmu\include\rtxmu\VulkanSuballocator.h">
+      <Filter>rtxmu\include\rtxmu</Filter>
     </ClInclude>
     <ClInclude Include="src\common\dxgi-format.h">
       <Filter>src\common</Filter>
@@ -117,9 +111,6 @@
     <ClInclude Include="src\common\versioning.h">
       <Filter>src\common</Filter>
     </ClInclude>
-    <ClInclude Include="src\d3d11\d3d11-backend.h">
-      <Filter>src\d3d11</Filter>
-    </ClInclude>
     <ClInclude Include="src\d3d12\d3d12-backend.h">
       <Filter>src\d3d12</Filter>
     </ClInclude>
@@ -128,6 +119,9 @@
     </ClInclude>
     <ClInclude Include="src\vulkan\vulkan-backend.h">
       <Filter>src\vulkan</Filter>
+    </ClInclude>
+    <ClInclude Include="thirdparty\DirectX-Headers\include\directx\D3D12TokenizedProgramFormat.hpp">
+      <Filter>thirdparty\DirectX-Headers\include\directx</Filter>
     </ClInclude>
     <ClInclude Include="thirdparty\DirectX-Headers\include\directx\DirectML.h">
       <Filter>thirdparty\DirectX-Headers\include\directx</Filter>
@@ -276,6 +270,9 @@
     <ClInclude Include="thirdparty\Vulkan-Headers\include\vulkan\vulkan.h">
       <Filter>thirdparty\Vulkan-Headers\include\vulkan</Filter>
     </ClInclude>
+    <ClInclude Include="thirdparty\Vulkan-Headers\include\vulkan\vulkan.hpp">
+      <Filter>thirdparty\Vulkan-Headers\include\vulkan</Filter>
+    </ClInclude>
     <ClInclude Include="thirdparty\Vulkan-Headers\include\vulkan\vulkan_android.h">
       <Filter>thirdparty\Vulkan-Headers\include\vulkan</Filter>
     </ClInclude>
@@ -288,10 +285,31 @@
     <ClInclude Include="thirdparty\Vulkan-Headers\include\vulkan\vulkan_directfb.h">
       <Filter>thirdparty\Vulkan-Headers\include\vulkan</Filter>
     </ClInclude>
+    <ClInclude Include="thirdparty\Vulkan-Headers\include\vulkan\vulkan_enums.hpp">
+      <Filter>thirdparty\Vulkan-Headers\include\vulkan</Filter>
+    </ClInclude>
+    <ClInclude Include="thirdparty\Vulkan-Headers\include\vulkan\vulkan_extension_inspection.hpp">
+      <Filter>thirdparty\Vulkan-Headers\include\vulkan</Filter>
+    </ClInclude>
+    <ClInclude Include="thirdparty\Vulkan-Headers\include\vulkan\vulkan_format_traits.hpp">
+      <Filter>thirdparty\Vulkan-Headers\include\vulkan</Filter>
+    </ClInclude>
     <ClInclude Include="thirdparty\Vulkan-Headers\include\vulkan\vulkan_fuchsia.h">
       <Filter>thirdparty\Vulkan-Headers\include\vulkan</Filter>
     </ClInclude>
+    <ClInclude Include="thirdparty\Vulkan-Headers\include\vulkan\vulkan_funcs.hpp">
+      <Filter>thirdparty\Vulkan-Headers\include\vulkan</Filter>
+    </ClInclude>
     <ClInclude Include="thirdparty\Vulkan-Headers\include\vulkan\vulkan_ggp.h">
+      <Filter>thirdparty\Vulkan-Headers\include\vulkan</Filter>
+    </ClInclude>
+    <ClInclude Include="thirdparty\Vulkan-Headers\include\vulkan\vulkan_handles.hpp">
+      <Filter>thirdparty\Vulkan-Headers\include\vulkan</Filter>
+    </ClInclude>
+    <ClInclude Include="thirdparty\Vulkan-Headers\include\vulkan\vulkan_hash.hpp">
+      <Filter>thirdparty\Vulkan-Headers\include\vulkan</Filter>
+    </ClInclude>
+    <ClInclude Include="thirdparty\Vulkan-Headers\include\vulkan\vulkan_hpp_macros.hpp">
       <Filter>thirdparty\Vulkan-Headers\include\vulkan</Filter>
     </ClInclude>
     <ClInclude Include="thirdparty\Vulkan-Headers\include\vulkan\vulkan_ios.h">
@@ -303,10 +321,28 @@
     <ClInclude Include="thirdparty\Vulkan-Headers\include\vulkan\vulkan_metal.h">
       <Filter>thirdparty\Vulkan-Headers\include\vulkan</Filter>
     </ClInclude>
+    <ClInclude Include="thirdparty\Vulkan-Headers\include\vulkan\vulkan_raii.hpp">
+      <Filter>thirdparty\Vulkan-Headers\include\vulkan</Filter>
+    </ClInclude>
     <ClInclude Include="thirdparty\Vulkan-Headers\include\vulkan\vulkan_screen.h">
       <Filter>thirdparty\Vulkan-Headers\include\vulkan</Filter>
     </ClInclude>
+    <ClInclude Include="thirdparty\Vulkan-Headers\include\vulkan\vulkan_shared.hpp">
+      <Filter>thirdparty\Vulkan-Headers\include\vulkan</Filter>
+    </ClInclude>
+    <ClInclude Include="thirdparty\Vulkan-Headers\include\vulkan\vulkan_static_assertions.hpp">
+      <Filter>thirdparty\Vulkan-Headers\include\vulkan</Filter>
+    </ClInclude>
+    <ClInclude Include="thirdparty\Vulkan-Headers\include\vulkan\vulkan_structs.hpp">
+      <Filter>thirdparty\Vulkan-Headers\include\vulkan</Filter>
+    </ClInclude>
+    <ClInclude Include="thirdparty\Vulkan-Headers\include\vulkan\vulkan_to_string.hpp">
+      <Filter>thirdparty\Vulkan-Headers\include\vulkan</Filter>
+    </ClInclude>
     <ClInclude Include="thirdparty\Vulkan-Headers\include\vulkan\vulkan_vi.h">
+      <Filter>thirdparty\Vulkan-Headers\include\vulkan</Filter>
+    </ClInclude>
+    <ClInclude Include="thirdparty\Vulkan-Headers\include\vulkan\vulkan_video.hpp">
       <Filter>thirdparty\Vulkan-Headers\include\vulkan</Filter>
     </ClInclude>
     <ClInclude Include="thirdparty\Vulkan-Headers\include\vulkan\vulkan_wayland.h">
@@ -326,6 +362,21 @@
     </ClInclude>
   </ItemGroup>
   <ItemGroup>
+    <ClCompile Include="rtxmu\src\D3D12AccelStructManager.cpp">
+      <Filter>rtxmu\src</Filter>
+    </ClCompile>
+    <ClCompile Include="rtxmu\src\D3D12Suballocator.cpp">
+      <Filter>rtxmu\src</Filter>
+    </ClCompile>
+    <ClCompile Include="rtxmu\src\Logger.cpp">
+      <Filter>rtxmu\src</Filter>
+    </ClCompile>
+    <ClCompile Include="rtxmu\src\VkAccelStructManager.cpp">
+      <Filter>rtxmu\src</Filter>
+    </ClCompile>
+    <ClCompile Include="rtxmu\src\VulkanSuballocator.cpp">
+      <Filter>rtxmu\src</Filter>
+    </ClCompile>
     <ClCompile Include="src\common\aftermath.cpp">
       <Filter>src\common</Filter>
     </ClCompile>
@@ -346,36 +397,6 @@
     </ClCompile>
     <ClCompile Include="src\common\utils.cpp">
       <Filter>src\common</Filter>
-    </ClCompile>
-    <ClCompile Include="src\d3d11\d3d11-buffer.cpp">
-      <Filter>src\d3d11</Filter>
-    </ClCompile>
-    <ClCompile Include="src\d3d11\d3d11-commandlist.cpp">
-      <Filter>src\d3d11</Filter>
-    </ClCompile>
-    <ClCompile Include="src\d3d11\d3d11-compute.cpp">
-      <Filter>src\d3d11</Filter>
-    </ClCompile>
-    <ClCompile Include="src\d3d11\d3d11-constants.cpp">
-      <Filter>src\d3d11</Filter>
-    </ClCompile>
-    <ClCompile Include="src\d3d11\d3d11-device.cpp">
-      <Filter>src\d3d11</Filter>
-    </ClCompile>
-    <ClCompile Include="src\d3d11\d3d11-graphics.cpp">
-      <Filter>src\d3d11</Filter>
-    </ClCompile>
-    <ClCompile Include="src\d3d11\d3d11-queries.cpp">
-      <Filter>src\d3d11</Filter>
-    </ClCompile>
-    <ClCompile Include="src\d3d11\d3d11-resource-bindings.cpp">
-      <Filter>src\d3d11</Filter>
-    </ClCompile>
-    <ClCompile Include="src\d3d11\d3d11-shader.cpp">
-      <Filter>src\d3d11</Filter>
-    </ClCompile>
-    <ClCompile Include="src\d3d11\d3d11-texture.cpp">
-      <Filter>src\d3d11</Filter>
     </ClCompile>
     <ClCompile Include="src\d3d12\d3d12-buffer.cpp">
       <Filter>src\d3d12</Filter>
@@ -485,5 +506,47 @@
     <ClCompile Include="thirdparty\DirectX-Headers\src\dxguids.cpp">
       <Filter>thirdparty\DirectX-Headers\src</Filter>
     </ClCompile>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="README.md" />
+    <None Include="doc\ProgrammingGuide.md">
+      <Filter>doc</Filter>
+    </None>
+    <None Include="doc\Tutorial.md">
+      <Filter>doc</Filter>
+    </None>
+    <None Include="rtxmu\README.md">
+      <Filter>rtxmu</Filter>
+    </None>
+    <None Include="thirdparty\DirectX-Headers\CODE_OF_CONDUCT.md">
+      <Filter>thirdparty\DirectX-Headers</Filter>
+    </None>
+    <None Include="thirdparty\DirectX-Headers\README.md">
+      <Filter>thirdparty\DirectX-Headers</Filter>
+    </None>
+    <None Include="thirdparty\DirectX-Headers\SECURITY.md">
+      <Filter>thirdparty\DirectX-Headers</Filter>
+    </None>
+    <None Include="thirdparty\Vulkan-Headers\.github\ISSUE_TEMPLATE\bug_report.md">
+      <Filter>thirdparty\Vulkan-Headers\.github\ISSUE_TEMPLATE</Filter>
+    </None>
+    <None Include="thirdparty\Vulkan-Headers\.github\pull_request_template.md">
+      <Filter>thirdparty\Vulkan-Headers\.github</Filter>
+    </None>
+    <None Include="thirdparty\Vulkan-Headers\BUILD.md">
+      <Filter>thirdparty\Vulkan-Headers</Filter>
+    </None>
+    <None Include="thirdparty\Vulkan-Headers\CONTRIBUTING.md">
+      <Filter>thirdparty\Vulkan-Headers</Filter>
+    </None>
+    <None Include="thirdparty\Vulkan-Headers\LICENSE.md">
+      <Filter>thirdparty\Vulkan-Headers</Filter>
+    </None>
+    <None Include="thirdparty\Vulkan-Headers\README.md">
+      <Filter>thirdparty\Vulkan-Headers</Filter>
+    </None>
+    <None Include="thirdparty\Vulkan-Headers\SECURITY.md">
+      <Filter>thirdparty\Vulkan-Headers</Filter>
+    </None>
   </ItemGroup>
 </Project>

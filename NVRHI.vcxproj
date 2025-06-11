@@ -5,8 +5,8 @@
       <Configuration>Debug</Configuration>
       <Platform>x64</Platform>
     </ProjectConfiguration>
-    <ProjectConfiguration Include="Optimized|x64">
-      <Configuration>Optimized</Configuration>
+    <ProjectConfiguration Include="Release-Assert|x64">
+      <Configuration>Release-Assert</Configuration>
       <Platform>x64</Platform>
     </ProjectConfiguration>
     <ProjectConfiguration Include="Release|x64">
@@ -28,7 +28,7 @@
     <CharacterSet>Unicode</CharacterSet>
     <PlatformToolset>v143</PlatformToolset>
   </PropertyGroup>
-  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Optimized|x64'" Label="Configuration">
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release-Assert|x64'" Label="Configuration">
     <ConfigurationType>StaticLibrary</ConfigurationType>
     <UseDebugLibraries>false</UseDebugLibraries>
     <CharacterSet>Unicode</CharacterSet>
@@ -46,7 +46,7 @@
   <ImportGroup Label="PropertySheets" Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">
     <Import Project="$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props" Condition="exists('$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props')" Label="LocalAppDataPlatform" />
   </ImportGroup>
-  <ImportGroup Label="PropertySheets" Condition="'$(Configuration)|$(Platform)'=='Optimized|x64'">
+  <ImportGroup Label="PropertySheets" Condition="'$(Configuration)|$(Platform)'=='Release-Assert|x64'">
     <Import Project="$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props" Condition="exists('$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props')" Label="LocalAppDataPlatform" />
   </ImportGroup>
   <ImportGroup Label="PropertySheets" Condition="'$(Configuration)|$(Platform)'=='Release|x64'">
@@ -54,20 +54,20 @@
   </ImportGroup>
   <PropertyGroup Label="UserMacros" />
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">
-    <OutDir>..\..\..\Build\bin\</OutDir>
-    <IntDir>..\..\..\Build\obj\NVRHI\Debug\</IntDir>
+    <OutDir>..\..\Build\bin\windows-x86_64-Debug\</OutDir>
+    <IntDir>..\..\Build\obj\windows-x86_64-Debug\Debug\NVRHI\</IntDir>
     <TargetName>NVRHI</TargetName>
     <TargetExt>.lib</TargetExt>
   </PropertyGroup>
-  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Optimized|x64'">
-    <OutDir>..\..\..\Build\bin\</OutDir>
-    <IntDir>..\..\..\Build\obj\NVRHI\Optimized\</IntDir>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release-Assert|x64'">
+    <OutDir>..\..\Build\bin\windows-x86_64-Release-Assert\</OutDir>
+    <IntDir>..\..\Build\obj\windows-x86_64-Release-Assert\Release-Assert\NVRHI\</IntDir>
     <TargetName>NVRHI</TargetName>
     <TargetExt>.lib</TargetExt>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'">
-    <OutDir>..\..\..\Build\bin\</OutDir>
-    <IntDir>..\..\..\Build\obj\NVRHI\Release\</IntDir>
+    <OutDir>..\..\Build\bin\windows-x86_64-Release\</OutDir>
+    <IntDir>..\..\Build\obj\windows-x86_64-Release\Release\NVRHI\</IntDir>
     <TargetName>NVRHI</TargetName>
     <TargetExt>.lib</TargetExt>
   </PropertyGroup>
@@ -75,13 +75,15 @@
     <ClCompile>
       <PrecompiledHeader>NotUsing</PrecompiledHeader>
       <WarningLevel>Level3</WarningLevel>
-      <PreprocessorDefinitions>NVRHI_WITH_DX12;NVRHI_WITH_VULKAN;VK_USE_PLATFORM_WIN32_KHR;NOMINMAX;%(PreprocessorDefinitions)</PreprocessorDefinitions>
-      <AdditionalIncludeDirectories>thirdparty\DirectX-Headers\include;thirdparty\DirectX-Headers\include\directx;thirdparty\DirectX-Headers\src;thirdparty\Vulkan-Headers\include;include;src;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <PreprocessorDefinitions>NVRHI_WITH_VULKAN;RTXMU_WITH_VULKAN;NVRHI_WITH_DX12;RTXMU_WITH_D3D12;VK_USE_PLATFORM_WIN32_KHR;NOMINMAX;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <AdditionalIncludeDirectories>thirdparty\DirectX-Headers\include;thirdparty\DirectX-Headers\include\directx;thirdparty\Vulkan-Headers\include;rtxmu\include;include;src;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
       <DebugInformationFormat>EditAndContinue</DebugInformationFormat>
       <Optimization>Disabled</Optimization>
+      <MinimalRebuild>false</MinimalRebuild>
       <RuntimeLibrary>MultiThreadedDebugDLL</RuntimeLibrary>
+      <MultiProcessorCompilation>true</MultiProcessorCompilation>
       <AdditionalOptions>/MDd %(AdditionalOptions)</AdditionalOptions>
-      <LanguageStandard>stdcpp20</LanguageStandard>
+      <LanguageStandard>stdcpp17</LanguageStandard>
       <ExternalWarningLevel>Level3</ExternalWarningLevel>
     </ClCompile>
     <Link>
@@ -89,20 +91,21 @@
       <GenerateDebugInformation>true</GenerateDebugInformation>
     </Link>
   </ItemDefinitionGroup>
-  <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Optimized|x64'">
+  <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Release-Assert|x64'">
     <ClCompile>
       <PrecompiledHeader>NotUsing</PrecompiledHeader>
       <WarningLevel>Level3</WarningLevel>
-      <PreprocessorDefinitions>NVRHI_WITH_DX12;NVRHI_WITH_VULKAN;VK_USE_PLATFORM_WIN32_KHR;NOMINMAX;%(PreprocessorDefinitions)</PreprocessorDefinitions>
-      <AdditionalIncludeDirectories>thirdparty\DirectX-Headers\include;thirdparty\DirectX-Headers\include\directx;thirdparty\DirectX-Headers\src;thirdparty\Vulkan-Headers\include;include;src;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <PreprocessorDefinitions>NVRHI_WITH_VULKAN;RTXMU_WITH_VULKAN;NVRHI_WITH_DX12;RTXMU_WITH_D3D12;VK_USE_PLATFORM_WIN32_KHR;NOMINMAX;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <AdditionalIncludeDirectories>thirdparty\DirectX-Headers\include;thirdparty\DirectX-Headers\include\directx;thirdparty\Vulkan-Headers\include;rtxmu\include;include;src;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
       <Optimization>Full</Optimization>
       <FunctionLevelLinking>true</FunctionLevelLinking>
       <IntrinsicFunctions>true</IntrinsicFunctions>
       <MinimalRebuild>false</MinimalRebuild>
       <StringPooling>true</StringPooling>
       <RuntimeLibrary>MultiThreadedDLL</RuntimeLibrary>
+      <MultiProcessorCompilation>true</MultiProcessorCompilation>
       <AdditionalOptions>/MDd %(AdditionalOptions)</AdditionalOptions>
-      <LanguageStandard>stdcpp20</LanguageStandard>
+      <LanguageStandard>stdcpp17</LanguageStandard>
       <ExternalWarningLevel>Level3</ExternalWarningLevel>
     </ClCompile>
     <Link>
@@ -115,8 +118,8 @@
     <ClCompile>
       <PrecompiledHeader>NotUsing</PrecompiledHeader>
       <WarningLevel>Level3</WarningLevel>
-      <PreprocessorDefinitions>NVRHI_WITH_DX12;NVRHI_WITH_VULKAN;VK_USE_PLATFORM_WIN32_KHR;NOMINMAX;%(PreprocessorDefinitions)</PreprocessorDefinitions>
-      <AdditionalIncludeDirectories>thirdparty\DirectX-Headers\include;thirdparty\DirectX-Headers\include\directx;thirdparty\DirectX-Headers\src;thirdparty\Vulkan-Headers\include;include;src;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <PreprocessorDefinitions>NVRHI_WITH_VULKAN;RTXMU_WITH_VULKAN;NVRHI_WITH_DX12;RTXMU_WITH_D3D12;VK_USE_PLATFORM_WIN32_KHR;NOMINMAX;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <AdditionalIncludeDirectories>thirdparty\DirectX-Headers\include;thirdparty\DirectX-Headers\include\directx;thirdparty\Vulkan-Headers\include;rtxmu\include;include;src;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
       <DebugInformationFormat>None</DebugInformationFormat>
       <Optimization>Full</Optimization>
       <FunctionLevelLinking>true</FunctionLevelLinking>
@@ -124,8 +127,9 @@
       <MinimalRebuild>false</MinimalRebuild>
       <StringPooling>true</StringPooling>
       <RuntimeLibrary>MultiThreadedDLL</RuntimeLibrary>
+      <MultiProcessorCompilation>true</MultiProcessorCompilation>
       <AdditionalOptions>/MD %(AdditionalOptions)</AdditionalOptions>
-      <LanguageStandard>stdcpp20</LanguageStandard>
+      <LanguageStandard>stdcpp17</LanguageStandard>
       <ExternalWarningLevel>Level3</ExternalWarningLevel>
     </ClCompile>
     <Link>
@@ -136,26 +140,21 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
-    <ClInclude Include="include\nvrhi\common\aftermath.h" />
-    <ClInclude Include="include\nvrhi\common\containers.h" />
-    <ClInclude Include="include\nvrhi\common\misc.h" />
-    <ClInclude Include="include\nvrhi\common\resource.h" />
-    <ClInclude Include="include\nvrhi\common\resourcebindingmap.h" />
-    <ClInclude Include="include\nvrhi\d3d11.h" />
-    <ClInclude Include="include\nvrhi\d3d12.h" />
-    <ClInclude Include="include\nvrhi\nvrhi.h" />
-    <ClInclude Include="include\nvrhi\nvrhiHLSL.h" />
-    <ClInclude Include="include\nvrhi\utils.h" />
-    <ClInclude Include="include\nvrhi\validation.h" />
-    <ClInclude Include="include\nvrhi\vulkan.h" />
+    <ClInclude Include="rtxmu\include\rtxmu\AccelStructManager.h" />
+    <ClInclude Include="rtxmu\include\rtxmu\D3D12AccelStructManager.h" />
+    <ClInclude Include="rtxmu\include\rtxmu\D3D12Suballocator.h" />
+    <ClInclude Include="rtxmu\include\rtxmu\Logger.h" />
+    <ClInclude Include="rtxmu\include\rtxmu\Suballocator.h" />
+    <ClInclude Include="rtxmu\include\rtxmu\VkAccelStructManager.h" />
+    <ClInclude Include="rtxmu\include\rtxmu\VulkanSuballocator.h" />
     <ClInclude Include="src\common\dxgi-format.h" />
     <ClInclude Include="src\common\sparse-bitset.h" />
     <ClInclude Include="src\common\state-tracking.h" />
     <ClInclude Include="src\common\versioning.h" />
-    <ClInclude Include="src\d3d11\d3d11-backend.h" />
     <ClInclude Include="src\d3d12\d3d12-backend.h" />
     <ClInclude Include="src\validation\validation-backend.h" />
     <ClInclude Include="src\vulkan\vulkan-backend.h" />
+    <ClInclude Include="thirdparty\DirectX-Headers\include\directx\D3D12TokenizedProgramFormat.hpp" />
     <ClInclude Include="thirdparty\DirectX-Headers\include\directx\DirectML.h" />
     <ClInclude Include="thirdparty\DirectX-Headers\include\directx\d3d12.h" />
     <ClInclude Include="thirdparty\DirectX-Headers\include\directx\d3d12compatibility.h" />
@@ -205,17 +204,31 @@
     <ClInclude Include="thirdparty\Vulkan-Headers\include\vulkan\vk_layer.h" />
     <ClInclude Include="thirdparty\Vulkan-Headers\include\vulkan\vk_platform.h" />
     <ClInclude Include="thirdparty\Vulkan-Headers\include\vulkan\vulkan.h" />
+    <ClInclude Include="thirdparty\Vulkan-Headers\include\vulkan\vulkan.hpp" />
     <ClInclude Include="thirdparty\Vulkan-Headers\include\vulkan\vulkan_android.h" />
     <ClInclude Include="thirdparty\Vulkan-Headers\include\vulkan\vulkan_beta.h" />
     <ClInclude Include="thirdparty\Vulkan-Headers\include\vulkan\vulkan_core.h" />
     <ClInclude Include="thirdparty\Vulkan-Headers\include\vulkan\vulkan_directfb.h" />
+    <ClInclude Include="thirdparty\Vulkan-Headers\include\vulkan\vulkan_enums.hpp" />
+    <ClInclude Include="thirdparty\Vulkan-Headers\include\vulkan\vulkan_extension_inspection.hpp" />
+    <ClInclude Include="thirdparty\Vulkan-Headers\include\vulkan\vulkan_format_traits.hpp" />
     <ClInclude Include="thirdparty\Vulkan-Headers\include\vulkan\vulkan_fuchsia.h" />
+    <ClInclude Include="thirdparty\Vulkan-Headers\include\vulkan\vulkan_funcs.hpp" />
     <ClInclude Include="thirdparty\Vulkan-Headers\include\vulkan\vulkan_ggp.h" />
+    <ClInclude Include="thirdparty\Vulkan-Headers\include\vulkan\vulkan_handles.hpp" />
+    <ClInclude Include="thirdparty\Vulkan-Headers\include\vulkan\vulkan_hash.hpp" />
+    <ClInclude Include="thirdparty\Vulkan-Headers\include\vulkan\vulkan_hpp_macros.hpp" />
     <ClInclude Include="thirdparty\Vulkan-Headers\include\vulkan\vulkan_ios.h" />
     <ClInclude Include="thirdparty\Vulkan-Headers\include\vulkan\vulkan_macos.h" />
     <ClInclude Include="thirdparty\Vulkan-Headers\include\vulkan\vulkan_metal.h" />
+    <ClInclude Include="thirdparty\Vulkan-Headers\include\vulkan\vulkan_raii.hpp" />
     <ClInclude Include="thirdparty\Vulkan-Headers\include\vulkan\vulkan_screen.h" />
+    <ClInclude Include="thirdparty\Vulkan-Headers\include\vulkan\vulkan_shared.hpp" />
+    <ClInclude Include="thirdparty\Vulkan-Headers\include\vulkan\vulkan_static_assertions.hpp" />
+    <ClInclude Include="thirdparty\Vulkan-Headers\include\vulkan\vulkan_structs.hpp" />
+    <ClInclude Include="thirdparty\Vulkan-Headers\include\vulkan\vulkan_to_string.hpp" />
     <ClInclude Include="thirdparty\Vulkan-Headers\include\vulkan\vulkan_vi.h" />
+    <ClInclude Include="thirdparty\Vulkan-Headers\include\vulkan\vulkan_video.hpp" />
     <ClInclude Include="thirdparty\Vulkan-Headers\include\vulkan\vulkan_wayland.h" />
     <ClInclude Include="thirdparty\Vulkan-Headers\include\vulkan\vulkan_win32.h" />
     <ClInclude Include="thirdparty\Vulkan-Headers\include\vulkan\vulkan_xcb.h" />
@@ -223,6 +236,11 @@
     <ClInclude Include="thirdparty\Vulkan-Headers\include\vulkan\vulkan_xlib_xrandr.h" />
   </ItemGroup>
   <ItemGroup>
+    <ClCompile Include="rtxmu\src\D3D12AccelStructManager.cpp" />
+    <ClCompile Include="rtxmu\src\D3D12Suballocator.cpp" />
+    <ClCompile Include="rtxmu\src\Logger.cpp" />
+    <ClCompile Include="rtxmu\src\VkAccelStructManager.cpp" />
+    <ClCompile Include="rtxmu\src\VulkanSuballocator.cpp" />
     <ClCompile Include="src\common\aftermath.cpp" />
     <ClCompile Include="src\common\dxgi-format.cpp" />
     <ClCompile Include="src\common\format-info.cpp" />
@@ -230,16 +248,6 @@
     <ClCompile Include="src\common\sparse-bitset.cpp" />
     <ClCompile Include="src\common\state-tracking.cpp" />
     <ClCompile Include="src\common\utils.cpp" />
-    <ClCompile Include="src\d3d11\d3d11-buffer.cpp" />
-    <ClCompile Include="src\d3d11\d3d11-commandlist.cpp" />
-    <ClCompile Include="src\d3d11\d3d11-compute.cpp" />
-    <ClCompile Include="src\d3d11\d3d11-constants.cpp" />
-    <ClCompile Include="src\d3d11\d3d11-device.cpp" />
-    <ClCompile Include="src\d3d11\d3d11-graphics.cpp" />
-    <ClCompile Include="src\d3d11\d3d11-queries.cpp" />
-    <ClCompile Include="src\d3d11\d3d11-resource-bindings.cpp" />
-    <ClCompile Include="src\d3d11\d3d11-shader.cpp" />
-    <ClCompile Include="src\d3d11\d3d11-texture.cpp" />
     <ClCompile Include="src\d3d12\d3d12-buffer.cpp" />
     <ClCompile Include="src\d3d12\d3d12-commandlist.cpp" />
     <ClCompile Include="src\d3d12\d3d12-compute.cpp" />
@@ -276,6 +284,22 @@
     <ClCompile Include="src\vulkan\vulkan-upload.cpp" />
     <ClCompile Include="thirdparty\DirectX-Headers\src\d3dx12_property_format_table.cpp" />
     <ClCompile Include="thirdparty\DirectX-Headers\src\dxguids.cpp" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="README.md" />
+    <None Include="doc\ProgrammingGuide.md" />
+    <None Include="doc\Tutorial.md" />
+    <None Include="rtxmu\README.md" />
+    <None Include="thirdparty\DirectX-Headers\CODE_OF_CONDUCT.md" />
+    <None Include="thirdparty\DirectX-Headers\README.md" />
+    <None Include="thirdparty\DirectX-Headers\SECURITY.md" />
+    <None Include="thirdparty\Vulkan-Headers\.github\ISSUE_TEMPLATE\bug_report.md" />
+    <None Include="thirdparty\Vulkan-Headers\.github\pull_request_template.md" />
+    <None Include="thirdparty\Vulkan-Headers\BUILD.md" />
+    <None Include="thirdparty\Vulkan-Headers\CONTRIBUTING.md" />
+    <None Include="thirdparty\Vulkan-Headers\LICENSE.md" />
+    <None Include="thirdparty\Vulkan-Headers\README.md" />
+    <None Include="thirdparty\Vulkan-Headers\SECURITY.md" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">
