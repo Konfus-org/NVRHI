@@ -3,3 +3,5 @@ build*/
 nvapi/
 *.filters
 *.vcxproj
+*.filters
+*.vcxproj

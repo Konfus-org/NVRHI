@@ -1,5 +1,5 @@
 project "NVRHI"
-    kind "StaticLib"
+    kind "SharedLib"
     language "C++"
     cppdialect "C++17"
     staticruntime "Off"
@@ -20,6 +20,8 @@ project "NVRHI"
         "./thirdparty/Vulkan-Headers/include/**.h",
         "./thirdparty/Vulkan-Headers/include/**.hpp",
         "./thirdparty/Vulkan-Headers/src/**.cpp",
+
+        "./include/nvrhi/**.h",
 
         "./rtxmu/include/rtxmu/Logger.h",
         "./rtxmu/include/rtxmu/Suballocator.h",
@@ -48,8 +50,10 @@ project "NVRHI"
     }
     defines
     {
+        --"NVRHI_WITH_RTXMU",
         "NVRHI_WITH_VULKAN",
-        "RTXMU_WITH_VULKAN"
+        "RTXMU_WITH_VULKAN",
+        "NVRHI_SHARED_LIBRARY_BUILD"
     }
 
     filter "system:windows"
